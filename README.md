@@ -4,6 +4,12 @@ A mobile application and backend API built for the CEO of a real estate company 
 
 ---
 
+## 📱 High-Fidelity Android Device Mockups
+
+![Android Device Mockups](mockups/all_screens_mockup.png)
+
+---
+
 ## Tech Stack
 
 - **Frontend:** React Native (Expo SDK 57), TypeScript, React Navigation (Native Stack), Expo SecureStore, Axios
