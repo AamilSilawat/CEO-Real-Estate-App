@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Complete Android Device Mockups — Sterling & Co. Executive App</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: #0B0F19; color: #F8FAFC; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+
+    .header-section { text-align: center; margin-bottom: 40px; }
+    h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; color: #FFFFFF; letter-spacing: -0.5px; }
+    p.subtitle { color: #94A3B8; font-size: 15px; }
+
+    .category-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #38BDF8;
+      width: 100%;
+      max-width: 1400px;
+      margin: 30px 0 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 8px;
+    }
+
+    .mockup-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 36px; max-width: 1400px; }
+
+    .phone-container { display: flex; flex-direction: column; align-items: center; }
+    .screen-label { font-size: 15px; font-weight: 700; color: #E2E8F0; margin-top: 14px; letter-spacing: 0.3px; }
+    .screen-sub { font-size: 12px; color: #64748B; margin-top: 2px; }
+
+    /* Pixel 8 Pro Device Frame */
+    .android-device {
+      width: 380px;
+      height: 780px;
+      background: #1E293B;
+      border-radius: 48px;
+      padding: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 3px #334155;
+      position: relative;
+    }
+
+    .screen {
+      width: 100%;
+      height: 100%;
+      background: #F8FAFC;
+      border-radius: 36px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      color: #0F172A;
+    }
+
+    /* Android Status Bar */
+    .status-bar {
+      height: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #0F172A;
+      z-index: 10;
+    }
+    .camera-punchhole {
+      width: 12px;
+      height: 12px;
+      background: #000;
+      border-radius: 50%;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Screen Content */
+    .content { flex: 1; overflow-y: auto; padding: 10px 16px 20px 16px; }
+
+    /* Header */
+    .app-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .welcome-text { font-size: 17px; font-weight: 800; color: #0F172A; }
+    .sub-text { font-size: 11px; color: #64748B; }
+    .logout-btn { background: #FEF2F2; border: 1px solid #FECACA; color: #DC2626; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
+
+    .nav-bar-detail { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 800; margin-bottom: 12px; color: #0F172A; }
+    .back-arrow { color: #2563EB; font-size: 18px; }
+
+    /* Cards */
+    .card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1.5px solid #E2E8F0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-running-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .dept-title { font-size: 14px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+    .badge { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px; border: 1px solid; }
+    .badge-green { background: #ECFDF5; color: #059669; border-color: #A7F3D0; }
+    .badge-amber { background: #FFFBEB; color: #D97706; border-color: #FDE68A; }
+    .badge-red { background: #FEF2F2; color: #DC2626; border-color: #FECACA; }
+    .badge-blue { background: #EFF6FF; color: #2563EB; border-color: #BFDBFE; }
+
+    .summary-text { font-size: 11px; color: #475569; margin-bottom: 8px; line-height: 1.4; }
+
+    .metrics-grid {
+      display: flex;
+      justify-content: space-between;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+    .metric-item { flex: 1; text-align: center; }
+    .metric-label { font-size: 8px; font-weight: 700; color: #64748B; text-transform: uppercase; }
+    .metric-value { font-size: 13px; font-weight: 800; color: #0F172A; margin-top: 2px; }
+
+    .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #F1F5F9; padding-top: 6px; font-size: 10px; }
+    .action-tag { font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+
+    /* Login Screen Specifics */
+    .login-container { display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 20px; }
+    .logo-badge { width: 48px; height: 48px; background: #2563EB; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 18px; margin: 0 auto 12px; }
+    .login-title { font-size: 20px; font-weight: 800; text-align: center; margin-bottom: 4px; }
+    .login-sub { font-size: 12px; color: #64748B; text-align: center; margin-bottom: 20px; }
+    .input-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; font-size: 13px; }
+    .btn-primary { background: #2563EB; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 700; font-size: 13px; text-align: center; margin-top: 4px; }
+    .demo-creds { background: #F1F5F9; border-radius: 6px; padding: 8px; text-align: center; margin-top: 14px; font-size: 11px; color: #2563EB; font-weight: 700; }
+
+    /* Detail Screens List Item */
+    .item-card { background: white; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+    .item-header { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .item-sub { font-size: 11px; color: #64748B; }
+    .action-btn-row { display: flex; gap: 8px; margin-top: 8px; border-top: 1px solid #F1F5F9; padding-top: 8px; }
+    .btn-action-green { flex: 1; background: #ECFDF5; border: 1px solid #A7F3D0; color: #059669; font-size: 11px; font-weight: 700; padding: 7px; border-radius: 6px; text-align: center; }
+    .btn-action-red { flex: 1; background: #FEF2F2; border: 1px solid #FECACA; color: #DC2626; font-size: 11px; font-weight: 700; padding: 7px; border-radius: 6px; text-align: center; }
+    .btn-action-blue { width: 100%; background: #EFF6FF; border: 1px solid #BFDBFE; color: #2563EB; font-size: 11px; font-weight: 700; padding: 7px; border-radius: 6px; text-align: center; }
+    .btn-action-orange { width: 100%; background: #FFFBEB; border: 1px solid #FDE68A; color: #D97706; font-size: 11px; font-weight: 700; padding: 7px; border-radius: 6px; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <div class="header-section">
+    <h1>📱 Sterling & Co. Real Estate — Complete App Mockups</h1>
+    <p class="subtitle">Official Google Pixel 8 Pro Presentation Frames • Core Dashboard & All 5 Department Detail Screens</p>
+  </div>
+
+  <!-- SECTION 1: CORE SCREENS -->
+  <div class="category-title">Part 1: Authentication & Central Dashboard</div>
+  <div class="mockup-grid">
+
+    <!-- Screen 1: Login -->
+    <div class="phone-container">
+      <div class="android-device">
+        <div class="screen">
+          <div class="status-bar"><span>9:41</span><span>🔋 100%</span></div>
+          <div class="camera-punchhole"></div>
+          <div class="login-container">
+            <div class="logo-badge">HQ</div>
+            <div class="login-title">Sterling & Co.</div>
+            <div class="login-sub">Executive Command Center</div>
+            <div style="background: white; padding: 16px; border-radius: 12px; border: 1px solid #E2E8F0;">
+              <div style="font-size: 11px; font-weight: 700; color: #475569; margin-bottom: 4px;">CORPORATE EMAIL</div>
+              <div class="input-box">ceo@realestate.com</div>
+              <div style="font-size: 11px; font-weight: 700; color: #475569; margin-bottom: 4px;">PASSWORD</div>
+              <div class="input-box">••••••••</div>
+              <div class="btn-primary">Access Command Center</div>
+              <div class="demo-creds">Demo: ceo@realestate.com • admin123</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="screen-label">1. Authentication Screen</div>
+      <div class="screen-sub">JWT Token Login with Secure Storage</div>
+    </div>
+
+    <!-- Screen 2: Central Dashboard -->
+    <div class="phone-container">
+      <div class="android-device">
+        <div class="screen">
+          <div class="status-bar"><span>9:41</span><span>🔋 100%</span></div>
+          <div class="camera-punchhole"></div>
+          <div class="content">
+            <div class="app-header">
+              <div>
+                <div class="welcome-text">Welcome, Aamil Silawat</div>
+                <div class="sub-text">CEO Dashboard • Live Monitoring</div>
+              </div>
+              <div class="logout-btn">Logout</div>
+            </div>
+
+            <!-- Sales Card -->
+            <div class="card" style="border-color: #FDE68A;">
+              <div class="card-running-bar" style="background: #D97706;"></div>
+              <div class="card-header">
+                <div class="dept-title"><span class="pulse-dot" style="background: #D97706;"></span>Sales</div>
+                <span class="badge badge-amber">🟡 Needs Attention</span>
+              </div>
+              <div class="summary-text">Attention: Pipeline value is below monthly quota</div>
+              <div class="metrics-grid">
+                <div class="metric-item"><div class="metric-label">Deals</div><div class="metric-value">5</div></div>
+                <div class="metric-item"><div class="metric-label">Pipeline</div><div class="metric-value" style="color:#D97706;">$33.6M</div></div>
+                <div class="metric-item"><div class="metric-label">Won</div><div class="metric-value">1</div></div>
+              </div>
+              <div class="card-footer"><span class="action-tag" style="background:#FFFBEB; color:#D97706;">Action: Mark Won/Lost</span><span style="color:#D97706; font-weight:700;">Open Dept →</span></div>
+            </div>
+
+            <!-- Operations Card -->
+            <div class="card" style="border-color: #FECACA;">
+              <div class="card-running-bar" style="background: #DC2626;"></div>
+              <div class="card-header">
+                <div class="dept-title"><span class="pulse-dot" style="background: #DC2626;"></span>Operations</div>
+                <span class="badge badge-red">🔴 Critical Action</span>
+              </div>
+              <div class="summary-text">3 overdue tasks need immediate reassignment</div>
+              <div class="metrics-grid">
+                <div class="metric-item"><div class="metric-label">Overdue</div><div class="metric-value" style="color:#DC2626;">3</div></div>
+                <div class="metric-item"><div class="metric-label">Completed</div><div class="metric-value">1</div></div>
+                <div class="metric-item"><div class="metric-label">Active Team</div><div class="metric-value">4</div></div>
+              </div>
+              <div class="card-footer"><span class="action-tag" style="background:#FEF2F2; color:#DC2626;">Action: Reassign Overdue</span><span style="color:#DC2626; font-weight:700;">Open Dept →</span></div>
+            </div>
+
+            <!-- Finance Card -->
+            <div class="card" style="border-color: #FDE68A;">
+              <div class="card-running-bar" style="background: #D97706;"></div>
+              <div class="card-header">
+                <div class="dept-title"><span class="pulse-dot" style="background: #D97706;"></span>Finance</div>
+                <span class="badge badge-amber">🟡 Needs Attention</span>
+              </div>
+              <div class="summary-text">3 pending invoices awaiting approval</div>
+              <div class="metrics-grid">
+                <div class="metric-item"><div class="metric-label">Quota</div><div class="metric-value">82%</div></div>
+                <div class="metric-item"><div class="metric-label">Pending</div><div class="metric-value" style="color:#D97706;">3</div></div>
+                <div class="metric-item"><div class="metric-label">Value</div><div class="metric-value">$398K</div></div>
+              </div>
+              <div class="card-footer"><span class="action-tag" style="background:#FFFBEB; color:#D97706;">Action: Approve Invoice</span><span style="color:#D97706; font-weight:700;">Open Dept →</span></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="screen-label">2. Executive Command Dashboard</div>
+      <div class="screen-sub">Pulsing Multi-Department Health Status Monitor</div>
+    </div>
+
+  </div>
+
+  <!-- SECTION 2: DEPARTMENT DETAIL SCREENS -->
+  <div class="category-title">Part 2: All 5 Department Detail & Mutation Screens</div>
+  <div class="mockup-grid">
+
+    <!-- Screen 3: Sales Screen -->
+    <div class="phone-container">
+      <div class="android-device">
+        <div class="screen">
+          <div class="status-bar"><span>9:41</span><span>🔋 100%</span></div>
+          <div class="camera-punchhole"></div>
+          <div class="content">
+            <div class="nav-bar-detail"><span class="back-arrow">←</span> Sales & Pipeline</div>
+
+            <div class="card" style="background: white;">
+              <div style="font-size: 11px; font-weight: 700; color: #64748B; margin-bottom: 6px;">PIPELINE PERFORMANCE</div>
+              <div class="metrics-grid">
+                <div class="metric-item"><div class="metric-label">Active Deals</div><div class="metric-value">5</div></div>
+                <div class="metric-item"><div class="metric-label">Pipeline</div><div class="metric-value" style="color:#2563EB;">$33.6M</div></div>
+                <div class="metric-item"><div class="metric-label">Closed Won</div><div class="metric-value" style="color:#059669;">1</div></div>
+              </div>
+            </div>
+
+            <div style="font-size: 12px; font-weight: 700; margin-bottom: 8px;">Active Property Deals (7)</div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Grand View Penthouse (42A)</span><span class="badge badge-blue">PIPELINE</span></div>
+              <div class="item-sub">Client: Sovereign Capital • Value: $4.85M</div>
+              <div class="action-btn-row">
+                <div class="btn-action-green">✓ Mark Won</div>
+                <div class="btn-action-red">✗ Mark Lost</div>
+              </div>
+            </div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Marina Bay Commercial Plaza</span><span class="badge badge-blue">PIPELINE</span></div>
+              <div class="item-sub">Client: Nexus Tech • Value: $8.20M</div>
+              <div class="action-btn-row">
+                <div class="btn-action-green">✓ Mark Won</div>
+                <div class="btn-action-red">✗ Mark Lost</div>
+              </div>
+            </div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Highland Modern Villa</span><span class="badge badge-green">WON</span></div>
+              <div class="item-sub">Client: Evelyn St. Clair • Value: $3.10M</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="screen-label">3. Sales & Pipeline Detail</div>
+      <div class="screen-sub">Action: Mark Deals Won / Lost</div>
+    </div>
+
+    <!-- Screen 4: Operations Screen -->
+    <div class="phone-container">
+      <div class="android-device">
+        <div class="screen">
+          <div class="status-bar"><span>9:41</span><span>🔋 100%</span></div>
+          <div class="camera-punchhole"></div>
+          <div class="content">
+            <div class="nav-bar-detail"><span class="back-arrow">←</span> Site Operations</div>
+
+            <div class="card" style="background: white;">
+              <div style="font-size: 11px; font-weight: 700; color: #64748B; margin-bottom: 6px;">SITE MAINTENANCE HEALTH</div>
+              <div class="metrics-grid">
+                <div class="metric-item"><div class="metric-label">Overdue</div><div class="metric-value" style="color:#DC2626;">3</div></div>
+                <div class="metric-item"><div class="metric-label">Completed</div><div class="metric-value">1</div></div>
+                <div class="metric-item"><div class="metric-label">Staff</div><div class="metric-value">4</div></div>
+              </div>
+            </div>
+
+            <div style="font-size: 12px; font-weight: 700; margin-bottom: 8px;">Inspection & Maintenance Tickets</div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Finalize Structural Inspection</span><span class="badge badge-red">OVERDUE</span></div>
+              <div class="item-sub">📍 Marina Bay Plaza • Assignee: Sarah Jenkins</div>
+              <div class="action-btn-row"><div class="btn-action-blue">Reassign to Operations Manager</div></div>
+            </div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Resolve HVAC Noise Issue</span><span class="badge badge-red">OVERDUE</span></div>
+              <div class="item-sub">📍 Grand View Tower • Assignee: Marcus Vance</div>
+              <div class="action-btn-row"><div class="btn-action-blue">Reassign to Operations Manager</div></div>
+            </div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Elevator Modernization Sign-off</span><span class="badge badge-blue">IN PROGRESS</span></div>
+              <div class="item-sub">📍 Downtown Skyline • Assignee: Elena Rostova</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="screen-label">4. Site Operations Detail</div>
+      <div class="screen-sub">Action: Reassign Overdue Maintenance</div>
+    </div>
+
+    <!-- Screen 5: Finance Screen -->
+    <div class="phone-container">
+      <div class="android-device">
+        <div class="screen">
+          <div class="status-bar"><span>9:41</span><span>🔋 100%</span></div>
+          <div class="camera-punchhole"></div>
+          <div class="content">
+            <div class="nav-bar-detail"><span class="back-arrow">←</span> Finance & Invoices</div>
+
+            <div class="card" style="background: white;">
+              <div style="font-size: 11px; font-weight: 700; color: #64748B; margin-bottom: 6px;">FINANCIAL GOVERNANCE</div>
+              <div class="metrics-grid">
+                <div class="metric-item"><div class="metric-label">Revenue Quota</div><div class="metric-value">82%</div></div>
+                <div class="metric-item"><div class="metric-label">Pending Invoices</div><div class="metric-value" style="color:#D97706;">3</div></div>
+                <div class="metric-item"><div class="metric-label">Pending Value</div><div class="metric-value">$398K</div></div>
+              </div>
+            </div>
+
+            <div style="font-size: 12px; font-weight: 700; margin-bottom: 8px;">Corporate Invoices (4)</div>
+
+            <div class="item-card">
+              <div class="item-header"><span>INV-2026-001</span><span class="badge badge-amber">PENDING</span></div>
+              <div class="item-sub">Client: Apex Health Systems (Commission)</div>
+              <div style="font-size: 13px; font-weight: 800; margin-top: 4px;">Amount: $168,000</div>
+              <div class="action-btn-row"><div class="btn-action-green">Authorize & Approve Payout</div></div>
+            </div>
+
+            <div class="item-card">
+              <div class="item-header"><span>INV-2026-002</span><span class="badge badge-amber">PENDING</span></div>
+              <div class="item-sub">Client: TechVision LLC (Commercial Lease)</div>
+              <div style="font-size: 13px; font-weight: 800; margin-top: 4px;">Amount: $84,500</div>
+              <div class="action-btn-row"><div class="btn-action-green">Authorize & Approve Payout</div></div>
+            </div>
+
+            <div class="item-card">
+              <div class="item-header"><span>INV-2026-004</span><span class="badge badge-green">APPROVED</span></div>
+              <div class="item-sub">Client: Bel Air Estates HOA • $42,000</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="screen-label">5. Finance & Invoicing Detail</div>
+      <div class="screen-sub">Action: Authorize & Approve Invoices</div>
+    </div>
+
+    <!-- Screen 6: Marketing Screen -->
+    <div class="phone-container">
+      <div class="android-device">
+        <div class="screen">
+          <div class="status-bar"><span>9:41</span><span>🔋 100%</span></div>
+          <div class="camera-punchhole"></div>
+          <div class="content">
+            <div class="nav-bar-detail"><span class="back-arrow">←</span> Growth & Marketing</div>
+
+            <div class="card" style="background: white;">
+              <div style="font-size: 11px; font-weight: 700; color: #64748B; margin-bottom: 6px;">CAMPAIGN VELOCITY</div>
+              <div class="metrics-grid">
+                <div class="metric-item"><div class="metric-label">Active Ads</div><div class="metric-value">3</div></div>
+                <div class="metric-item"><div class="metric-label">Leads (7D)</div><div class="metric-value" style="color:#2563EB;">108</div></div>
+                <div class="metric-item"><div class="metric-label">Top Source</div><div class="metric-value" style="font-size: 11px;">Google</div></div>
+              </div>
+            </div>
+
+            <div style="font-size: 12px; font-weight: 700; margin-bottom: 8px;">Ad Campaigns (4)</div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Ultra-Luxury Penthouses GeoAds</span><span class="badge badge-green">ACTIVE</span></div>
+              <div class="item-sub">Channel: Meta Ads • Leads: +34 this week</div>
+              <div class="action-btn-row"><div class="btn-action-red">Pause Ad Campaign</div></div>
+            </div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Commercial Plaza Search</span><span class="badge badge-green">ACTIVE</span></div>
+              <div class="item-sub">Channel: Google Search • Leads: +48 this week</div>
+              <div class="action-btn-row"><div class="btn-action-red">Pause Ad Campaign</div></div>
+            </div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Private Vineyard Feature</span><span class="badge badge-amber">PAUSED</span></div>
+              <div class="item-sub">Channel: Magazine Ads • Leads: +4 this week</div>
+              <div class="action-btn-row"><div class="btn-action-blue">Activate Ad Campaign</div></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="screen-label">6. Growth & Marketing Detail</div>
+      <div class="screen-sub">Action: Toggle Active / Paused Campaigns</div>
+    </div>
+
+    <!-- Screen 7: HR Screen -->
+    <div class="phone-container">
+      <div class="android-device">
+        <div class="screen">
+          <div class="status-bar"><span>9:41</span><span>🔋 100%</span></div>
+          <div class="camera-punchhole"></div>
+          <div class="content">
+            <div class="nav-bar-detail"><span class="back-arrow">←</span> Talent & HR</div>
+
+            <div class="card" style="background: white;">
+              <div style="font-size: 11px; font-weight: 700; color: #64748B; margin-bottom: 6px;">ORGANIZATION HEALTH</div>
+              <div class="metrics-grid">
+                <div class="metric-item"><div class="metric-label">Headcount</div><div class="metric-value">10</div></div>
+                <div class="metric-item"><div class="metric-label">Open Roles</div><div class="metric-value" style="color:#D97706;">3</div></div>
+                <div class="metric-item"><div class="metric-label">Attendance</div><div class="metric-value" style="color:#059669;">90%</div></div>
+              </div>
+            </div>
+
+            <div style="font-size: 12px; font-weight: 700; margin-bottom: 8px;">Employee Leave Requests (3)</div>
+
+            <div class="item-card">
+              <div class="item-header"><span>David Chen</span><span class="badge badge-amber">PENDING</span></div>
+              <div class="item-sub">Safety Officer • Annual Leave</div>
+              <div style="font-size: 12px; font-weight: 700; margin-top: 2px;">Duration: 5 Day(s)</div>
+              <div class="action-btn-row"><div class="btn-action-green">Authorize & Approve Leave</div></div>
+            </div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Sophie Turner</span><span class="badge badge-amber">PENDING</span></div>
+              <div class="item-sub">Residential Broker • Personal Leave</div>
+              <div style="font-size: 12px; font-weight: 700; margin-top: 2px;">Duration: 2 Day(s)</div>
+              <div class="action-btn-row"><div class="btn-action-green">Authorize & Approve Leave</div></div>
+            </div>
+
+            <div class="item-card">
+              <div class="item-header"><span>Maya Lin</span><span class="badge badge-green">APPROVED</span></div>
+              <div class="item-sub">Marketing Lead • Sick Leave (1 Day)</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="screen-label">7. Talent & HR Detail</div>
+      <div class="screen-sub">Action: Approve Employee Leave Requests</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
