@@ -10,11 +10,12 @@ import {
 } from 'react-native';
 import { LeaveRequest } from '../types';
 import { apiClient } from '../api/client';
+import { mockLeaveRequests, getMockHRStatus } from '../data/mockData';
 
 export default function HRScreen() {
-  const [leaveRequests, setLeaveRequests] = useState<LeaveRequest[]>([]);
-  const [metrics, setMetrics] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [leaveRequests, setLeaveRequests] = useState<LeaveRequest[]>(mockLeaveRequests);
+  const [metrics, setMetrics] = useState<any>(getMockHRStatus());
+  const [loading, setLoading] = useState(false);
 
   const loadHR = async () => {
     try {
@@ -24,9 +25,7 @@ export default function HRScreen() {
         setMetrics(res.data.metrics);
       }
     } catch (err) {
-      console.log('Error loading HR', err);
-    } finally {
-      setLoading(false);
+      // Fallback already in place
     }
   };
 

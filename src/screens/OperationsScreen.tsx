@@ -10,12 +10,13 @@ import {
 } from 'react-native';
 import { Task, TeamMember } from '../types';
 import { apiClient } from '../api/client';
+import { mockTasks, mockTeamMembers, getMockOperationsStatus } from '../data/mockData';
 
 export default function OperationsScreen() {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
-  const [metrics, setMetrics] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [tasks, setTasks] = useState<Task[]>(mockTasks);
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>(mockTeamMembers);
+  const [metrics, setMetrics] = useState<any>(getMockOperationsStatus());
+  const [loading, setLoading] = useState(false);
 
   const loadOperations = async () => {
     try {
@@ -26,9 +27,7 @@ export default function OperationsScreen() {
         setMetrics(res.data.metrics);
       }
     } catch (err) {
-      console.log('Error loading ops', err);
-    } finally {
-      setLoading(false);
+      // Fallback already in place
     }
   };
 

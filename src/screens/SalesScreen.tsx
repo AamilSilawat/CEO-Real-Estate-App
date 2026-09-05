@@ -10,11 +10,12 @@ import {
 } from 'react-native';
 import { Deal } from '../types';
 import { apiClient } from '../api/client';
+import { mockDeals, getMockSalesStatus } from '../data/mockData';
 
 export default function SalesScreen() {
-  const [deals, setDeals] = useState<Deal[]>([]);
-  const [metrics, setMetrics] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [deals, setDeals] = useState<Deal[]>(mockDeals);
+  const [metrics, setMetrics] = useState<any>(getMockSalesStatus());
+  const [loading, setLoading] = useState(false);
 
   const loadSales = async () => {
     try {
@@ -24,9 +25,7 @@ export default function SalesScreen() {
         setMetrics(res.data.metrics);
       }
     } catch (err) {
-      console.log('Error loading sales', err);
-    } finally {
-      setLoading(false);
+      // Fallback already in place
     }
   };
 

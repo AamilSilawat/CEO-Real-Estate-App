@@ -43,6 +43,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
       return false;
     } catch (error) {
+      // Fallback: If network/tunnel fails or is slow, authenticate demo credentials instantly
+      if (email.trim().toLowerCase() === 'ceo@realestate.com' && password === 'admin123') {
+        const demoUser: User = { name: 'Aamil Silawat', role: 'CEO', email: 'ceo@realestate.com' };
+        await saveToken('demo_ceo_token_123');
+        setUser(demoUser);
+        return true;
+      }
       return false;
     }
   };

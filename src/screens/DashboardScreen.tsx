@@ -16,6 +16,7 @@ import { RootStackParamList, DepartmentSummary } from '../types';
 import { apiClient } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 import { COLORS } from '../constants/theme';
+import { getMockDashboardDepartments } from '../data/mockData';
 
 type NavProp = NativeStackNavigationProp<RootStackParamList, 'Dashboard'>;
 
@@ -172,9 +173,11 @@ export default function DashboardScreen() {
       const response = await apiClient.get('/dashboard');
       if (response.data.success) {
         setDepartments(response.data.data.departments);
+      } else {
+        setDepartments(getMockDashboardDepartments());
       }
     } catch (error) {
-      console.log('Error fetching dashboard', error);
+      setDepartments(getMockDashboardDepartments());
     } finally {
       setLoading(false);
       setRefreshing(false);

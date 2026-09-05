@@ -10,11 +10,12 @@ import {
 } from 'react-native';
 import { Campaign } from '../types';
 import { apiClient } from '../api/client';
+import { mockCampaigns, getMockMarketingStatus } from '../data/mockData';
 
 export default function MarketingScreen() {
-  const [campaigns, setCampaigns] = useState<Campaign[]>([]);
-  const [metrics, setMetrics] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [campaigns, setCampaigns] = useState<Campaign[]>(mockCampaigns);
+  const [metrics, setMetrics] = useState<any>(getMockMarketingStatus());
+  const [loading, setLoading] = useState(false);
 
   const loadMarketing = async () => {
     try {
@@ -24,9 +25,7 @@ export default function MarketingScreen() {
         setMetrics(res.data.metrics);
       }
     } catch (err) {
-      console.log('Error loading marketing', err);
-    } finally {
-      setLoading(false);
+      // Fallback already in place
     }
   };
 

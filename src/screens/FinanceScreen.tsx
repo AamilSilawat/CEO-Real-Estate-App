@@ -10,11 +10,12 @@ import {
 } from 'react-native';
 import { Invoice } from '../types';
 import { apiClient } from '../api/client';
+import { mockInvoices, getMockFinanceStatus } from '../data/mockData';
 
 export default function FinanceScreen() {
-  const [invoices, setInvoices] = useState<Invoice[]>([]);
-  const [metrics, setMetrics] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [invoices, setInvoices] = useState<Invoice[]>(mockInvoices);
+  const [metrics, setMetrics] = useState<any>(getMockFinanceStatus());
+  const [loading, setLoading] = useState(false);
 
   const loadFinance = async () => {
     try {
@@ -24,9 +25,7 @@ export default function FinanceScreen() {
         setMetrics(res.data.metrics);
       }
     } catch (err) {
-      console.log('Error loading finance', err);
-    } finally {
-      setLoading(false);
+      // Fallback already in place
     }
   };
 

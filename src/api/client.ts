@@ -4,8 +4,15 @@ import { Platform } from 'react-native';
 
 const TOKEN_KEY = 'ceo_jwt_token';
 
+const getBaseUrl = () => {
+  if (Platform.OS === 'web') return 'http://localhost:5001/api';
+  if (Platform.OS === 'android') return 'http://10.0.2.2:5001/api';
+  return 'http://172.20.10.7:5001/api';
+};
+
 export const apiClient = axios.create({
-  baseURL: 'http://localhost:5001/api',
+  baseURL: getBaseUrl(),
+  timeout: 3000,
   headers: {
     'Content-Type': 'application/json'
   }
